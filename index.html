@@ -1361,6 +1361,7 @@ const PROGRAMAS = [
   materias:[{t:'Materias',items:['Pastelería clásica y europea','Pastelería superior','Panadería dulce y salada','Pastelería de vanguardia']}],
   incluye:['👔 Uniforme de regalo','📚 Manuales y recetarios','🥕 Materias primas','📝 Derechos de examen','🎓 Certificaciones universitarias']},
  {id:'master-pasteleria',tipo:'carrera',cat:'carrera',emoji:'🎓',color:'linear-gradient(120deg,#6A2C91,#A24BC9)',nombre:'Master en Pastelería',titulo:'Master en Pastelería',dur:'1 año lectivo',frec:'3 hs semanales prácticas',mod:'Presencial',cert:'Título privado con reconocimiento Internacional · Certificación de extensión universitaria',
+  heroImg:'hero-master-pasteleria.jpg',
   gancho:'Ya sos Pastelero. Es hora de convertirte en referente.',
   desc:'Terminaste tu carrera de Pastelero y querés más. Este posgrado profesional lleva tus técnicas a un nivel de vanguardia —chocolatería, pastelería moderna y de autor— para que te diferencies, valorices tu trabajo y lideres tu propio proyecto. Un posgrado profesional, para profesionales.',
   resumen:'Un posgrado exclusivo para pasteleros que no se conforman: sumá las técnicas más avanzadas y liberá tu creatividad para destacarte en un mercado cada vez más competitivo.',
@@ -1371,6 +1372,7 @@ const PROGRAMAS = [
   salidas:['Pastelería de autor','Chocolatería profesional','Jefe de pastelería','Emprendimiento propio','Desarrollo de productos','Docencia gastronómica'],
   incluye:['👔 Uniforme de regalo','📚 Manuales y recetarios','🥕 Materias primas','📝 Derechos de examen']},
  {id:'master-gastronomia',tipo:'carrera',cat:'carrera',emoji:'🎓',color:'linear-gradient(120deg,#5B2A86,#8E44AD)',nombre:'Master en Gastronomía',titulo:'Master en Gastronomía',dur:'1 año lectivo',frec:'3 hs semanales prácticas',mod:'Presencial',cert:'Título privado con reconocimiento Internacional · Certificación de extensión universitaria',
+  heroImg:'hero-master-gastronomia.jpg',
   gancho:'Ya sos Chef. Ahora, especialista.',
   desc:'Te recibiste de Chef Internacional y querés seguir. Este posgrado revaloriza tu título con técnicas de alta cocina, vanguardia europea y cocina de autor —y con una orientación docente que te abre una nueva salida: enseñar. Un posgrado profesional, para profesionales.',
   resumen:'La extensión ideal para tu carrera de Profesional Gastronómico: cerrás tu formación con las técnicas que hoy marcan tendencia en la alta cocina y ampliás tus horizontes profesionales.',
@@ -2124,7 +2126,7 @@ function verPrograma(id){
   const p=progById(id); if(!p)return;
   const mat=p.materias.map(m=>`<div class="anio"><h4>${m.t}</h4><ul>${m.items.map(i=>`<li>${i}</li>`).join('')}</ul></div>`).join('');
   $('#v-programa').innerHTML=`
-  <div class="ficha-hero">
+  <div class="ficha-hero"${p.heroImg?` style="background-image:linear-gradient(115deg,rgba(31,36,48,.90),rgba(43,50,69,.80)),url('${p.heroImg}');background-size:cover;background-position:center"`:''}>
     <div class="container">
       <div class="migas"><a onclick="ir('home')">Inicio</a> › <a onclick="ir('catalogo','todos')">Carreras y cursos</a> › ${p.nombre}</div>
       <h1>${p.emoji} ${p.nombre}</h1>
